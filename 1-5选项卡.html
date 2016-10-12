@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>1-5选项卡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+        #container{
+            width: 400px;
+            height: 200px;
+            margin: 100px auto;
+
+        }
+        #nav{
+            height: 30px;
+        }
+        #nav li{
+            float: left;
+            width: 100px;
+            height: 30px;
+            margin-right: 5px;
+            background: #aaaaaa;
+            text-align: center;
+            line-height: 30px;
+        }
+        #content{
+            background: #cccccc;
+            height: 170px;
+            width: 400px;
+            border-top: solid 1px #000000;
+        }
+        #nav .selected{
+            background: #000000;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="nav">
+            <li class="selected">javascript</li>
+            <li>html</li>
+            <li>css</li>
+
+        </ul>
+        <div id="content"></div>
+    </div>
+    <script>
+        var data = [11111,22222,33333];
+        var oNav = document.getElementById("nav");
+        var aLi = oNav.getElementsByTagName("li");
+        var oContent =document.getElementById("content");
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].index = i;//添加自定义属性（索引作用）
+            oContent.innerHTML = data[0];//设置默认文本
+            aLi[i].onclick = function(){
+                for(var i=0;i<aLi.length;i++){//清除所有li的css样式（之后再添加）
+                    aLi[i].className = "";
+                }
+                this.className = "selected";//添加点击到的li的css样式
+                oContent.innerHTML = data[this.index];//换文本内容
+            };
+        }
+    </script>
+</body>
+</html>
