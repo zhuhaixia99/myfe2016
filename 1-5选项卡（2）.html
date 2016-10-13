@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 400px;
+            height: 200px;
+            margin: 50px auto;
+        }
+        #nav{
+            height: 30px;
+        }
+        #nav li{
+            float: left;
+            width: 100px;
+            height: 30px;
+            margin-right: 10px;
+            background: #aaaaaa;
+            text-align: center;
+            line-height: 30px;
+        }
+        #content{
+            background: #ddd;
+            width: 400px;
+            height: 170px;
+        }
+        #nav li.selected{
+            background: black;
+            color: white;
+        }
+        #content{
+            border-top: solid 1px #000000;
+        }
+        #content div{
+            display: none;
+        }
+        #content div.selected{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="nav">
+        <li class="selected">javascript</li>
+        <li>html</li>
+        <li>css</li>
+    </ul>
+    <div id="content">
+        <div class="selected">111111</div>
+        <div>222222</div>
+        <div>333333</div>
+    </div>
+</div>
+<script>
+    var oNav = document.getElementById('nav');
+    var aLi = oNav.getElementsByTagName('li');
+    var oContent = document.getElementById('content');
+    var aDiv = oContent.getElementsByTagName('div');
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index = i;//自定义属性
+        aLi[i].onclick = function(){
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].className = "";
+                aDiv[i].className ="";
+            }
+            this.className = "selected";
+            aDiv[this.index].className = "selected";
+        }
+    }
+</script>
+</body>
+</html>
