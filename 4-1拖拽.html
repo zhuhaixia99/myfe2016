@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #drag{
+            width: 200px;
+            height: 300px;
+            background: #f00;
+            cursor:pointer;
+            position: absolute;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="drag"></div>
+    <script>
+        var oDrag = document.getElementById('drag');
+        oDrag.onmousedown = function(e){
+            e = e || window.event;
+            var iDisX = e.clientX - oDrag.offsetLeft,
+                iDisY = e.clientY - oDrag.offsetTop;
+            document.onmousemove = function(e){
+                e = e || window.event;
+                oDrag.style.left = e.clientX - iDisX + "px";
+                oDrag.style.top = e.clientY - iDisY + "px";
+            };
+            oDrag.onmouseup = function(){
+                document.onmousemove= null;
+            };
+        };
+        //获取某个元素的某个属性的函数
+        /*function getStyle(elem,prop){
+            if(window.getComputedStyle){
+                return window.getComputedStyle(elem,null)[prop];
+            }
+            else if(elem.currentStyle){
+                return elem.currentStyle[prop];
+            }
+        }*/
+    </script>
+</body>
+</html>
