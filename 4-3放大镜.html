@@ -52,68 +52,70 @@
             left: 0;
             top: 0;
         }
-        #mask{
+
+        #mask {
             width: 400px;
             height: 400px;
-            background: #ff0000;/*兼容性*/
+            background: #ff0000; /*兼容性*/
             position: absolute;
             left: 0;
             top: 0;
             opacity: 0;
-            filter:alpha(opacity=0);
-            z-index: 1;/*层级*/
+            filter: alpha(opacity=0);
+            z-index: 1; /*层级*/
             cursor: move;
         }
     </style>
 </head>
 <body>
-    <div id="small-pic">
-        <div id="drag"></div>
-        <img src="img/001.jpg" alt=""/>
-        <div id="mask"></div>
-    </div>
-    <div id="big-pic">
-        <img src="img/002.jpg" alt="" id="big-img"/>
-    </div>
-    <script>
-        var oSmallPic = document.getElementById("small-pic");
-        var oDrag = document.getElementById('drag');
-        var oBigPic = document.getElementById('big-pic');
-        var oBigImg = document.getElementById('big-img');
-        var oMask = document.getElementById('mask');
-        oMask.onmouseover = function () {
-            oDrag.style.display = "block";
-            oBigPic.style.display = "block";
-        };
-        oMask.onmousemove = function (e) {/*小图片定位*/
-            e = e || window.event;
-            var iLeft = e.clientX - oDrag.offsetWidth / 2;
-            var iTop = e.clientY - oDrag.offsetHeight / 2;
-            if (iLeft < 0) {
-                iLeft = 0;
-            }
-            if (iTop < 0) {
-                iTop = 0;
-            }
-            if (iLeft > oSmallPic.offsetWidth - oDrag.offsetWidth) {
-                iLeft = oSmallPic.offsetWidth - oDrag.offsetWidth;
-            }
-            if (iTop > oSmallPic.offsetHeight - oDrag.offsetHeight) {
-                iTop = oSmallPic.offsetHeight - oDrag.offsetHeight;
-            }
-            oDrag.style.left = iLeft + "px";
-            oDrag.style.top = iTop + "px";
-            /*大图片定位*/
-            var fScaleX = iLeft / (oSmallPic.offsetWidth - oDrag.offsetWidth);
-            var fScaleY = iTop / (oSmallPic.offsetHeight - oDrag.offsetHeight);
-            oBigImg.style.top = -(oBigImg.offsetHeight - oBigPic.offsetHeight) * fScaleY + "px";
-            oBigImg.style.left = -(oBigImg.offsetWidth - oBigPic.offsetWidth) * fScaleX + "px";
+<div id="small-pic">
+    <div id="drag"></div>
+    <img src="img/001.jpg" alt=""/>
 
-        };
-        oMask.onmouseout = function () {
-            oDrag.style.display = "none";
-            oBigPic.style.display = "none";
-        };
+    <div id="mask"></div>
+</div>
+<div id="big-pic">
+    <img src="img/002.jpg" alt="" id="big-img"/>
+</div>
+<script>
+    var oSmallPic = document.getElementById("small-pic");
+    var oDrag = document.getElementById('drag');
+    var oBigPic = document.getElementById('big-pic');
+    var oBigImg = document.getElementById('big-img');
+    var oMask = document.getElementById('mask');
+    oMask.onmouseover = function () {
+        oDrag.style.display = "block";
+        oBigPic.style.display = "block";
+    };
+    oMask.onmousemove = function (e) {/*小图片定位*/
+        e = e || window.event;
+        var iLeft = e.clientX - oDrag.offsetWidth / 2;
+        var iTop = e.clientY - oDrag.offsetHeight / 2;
+        if (iLeft < 0) {
+            iLeft = 0;
+        }
+        if (iTop < 0) {
+            iTop = 0;
+        }
+        if (iLeft > oSmallPic.offsetWidth - oDrag.offsetWidth) {
+            iLeft = oSmallPic.offsetWidth - oDrag.offsetWidth;
+        }
+        if (iTop > oSmallPic.offsetHeight - oDrag.offsetHeight) {
+            iTop = oSmallPic.offsetHeight - oDrag.offsetHeight;
+        }
+        oDrag.style.left = iLeft + "px";
+        oDrag.style.top = iTop + "px";
+        /*大图片定位*/
+        var fScaleX = iLeft / (oSmallPic.offsetWidth - oDrag.offsetWidth);
+        var fScaleY = iTop / (oSmallPic.offsetHeight - oDrag.offsetHeight);
+        oBigImg.style.top = -(oBigImg.offsetHeight - oBigPic.offsetHeight) * fScaleY + "px";
+        oBigImg.style.left = -(oBigImg.offsetWidth - oBigPic.offsetWidth) * fScaleX + "px";
+
+    };
+    oMask.onmouseout = function () {
+        oDrag.style.display = "none";
+        oBigPic.style.display = "none";
+    };
 </script>
 </body>
 </html>
