@@ -27,6 +27,7 @@
             left: 0;
             top: 0;
         }
+
         #content li {
             float: left;
             width: 120px;
@@ -41,7 +42,7 @@
 
         #arrow {
             position: absolute;
-            left:110px;
+            left: 110px;
             bottom: 55px;
         }
 
@@ -76,27 +77,27 @@
     var aLi = oContent.getElementsByTagName('li');
     var oLeft = document.getElementById("left");
     var oRight = document.getElementById("right");
-    oContent.innerHTML =oContent.innerHTML+oContent.innerHTML;
+    oContent.innerHTML = oContent.innerHTML + oContent.innerHTML;
     oContent.style.width = (aLi[0].offsetWidth + 10) * aLi.length + "px";
+    run(speed);
+    oLeft.onmouseover = function () {
+        run(-speed);
+    };
+    oRight.onmouseover = function () {
         run(speed);
-        oLeft.onmouseover = function () {
-            run(-speed);
-        };
-        oRight.onmouseover = function () {
-            run(speed);
-        };
-     function run(speed){
-         clearInterval(timer);
-         timer =setInterval(function(){
-             oContent.style.left = oContent.offsetLeft + speed + "px";
-             if (oContent.offsetLeft >0) {
-                 oContent.style.left = -oContent.offsetWidth/2 + "px";
-             }
-             if (oContent.offsetLeft < -oContent.offsetWidth/2) {
-                 oContent.style.left = 0 + "px";
-             }
-         },10);
-     }
+    };
+    function run(speed) {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            oContent.style.left = oContent.offsetLeft + speed + "px";
+            if (oContent.offsetLeft > 0) {
+                oContent.style.left = -oContent.offsetWidth / 2 + "px";
+            }
+            if (oContent.offsetLeft < -oContent.offsetWidth / 2) {
+                oContent.style.left = 0 + "px";
+            }
+        }, 10);
+    }
 </script>
 </body>
 </html>
