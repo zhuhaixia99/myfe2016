@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            border: 0;
+        }
+
+        #text-content {
+            width: 400px;
+        }
+
+        #img-list {
+            width: 100px;
+        }
+
+        #content {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+        }
+        #content img{
+            display: none;
+        }
+        #content .selected{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    图片：<input type="text" id="text-content"/>
+    <br/>
+    <select name="img" id="img-list">
+        <option value="img/1.jpg">图片一</option>
+        <option value="img/2.jpg">图片二</option>
+    </select>
+
+    <div id="content">
+        <img src="imgs/001.jpg" alt="" class="selected"/>
+        <img src="imgs/002.jpg" alt=""/>
+    </div>
+</form>
+<script>
+    var oImgList = document.getElementById('img-list');
+    var aOption = oImgList.getElementsByTagName('option');
+    var oContent = document.getElementById('content');
+    var aImg = oContent.getElementsByTagName('img');
+    var oTextContent = document.getElementById('text-content');
+    oImgList.onchange = function () {
+        for(var i = 0;i<aOption.length;i++){
+            aImg[i].className="";
+            if(aOption[i].selected){
+                aImg[i].className = "selected";
+                oTextContent.value = aOption[i].value;
+            }
+        }
+    };
+</script>
+</body>
+</html>

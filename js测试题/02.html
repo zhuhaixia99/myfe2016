@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>交换两张图片</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            border: 0;
+        }
+        #content{
+            width: 800px;
+            height: 800px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        #content img{
+            display: none;
+        }
+        #content .selected{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <img src="imgs/01.jpg" alt="" class="selected" id="img1"/>
+    <img src="imgs/02.jpg" alt="" id="img2"/>
+</div>
+<script>
+    var oContent =document.getElementById('content');
+    var oImg1 = document.getElementById('img1');
+    var oImg2 = document.getElementById('img2');
+    oContent.onmouseover = function(){
+        oImg1.className =""
+        oImg2.className = "selected";
+    };
+    oContent.onmouseout = function(){
+        oImg2.className = "";
+        oImg1.className = "selected";
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>单选框</title>
+</head>
+<body>
+<form action="" id="form">
+    男性：<input type="radio" name="sex" value="male"/>
+    <br/>
+    女性：<input type="radio" name="sex" value="female"/>
+    <br/>
+    中性：<input type="radio" name="sex" value="neuter"/>
+    <br/>
+    其他：<input type="radio" name="sex" value="other"/>
+</form>
+<script>
+    var oForm = document.getElementById('form');
+    var aInput= oForm.getElementsByTagName('input');
+    oForm.onchange=function(){
+        for(var i=0;i<aInput.length;i++){
+            if(aInput[i].checked){
+                alert("前选中的是第"+(i+1)+"个单选框");
+            }
+        }
+    };
+</script>
+</body>
+</html>

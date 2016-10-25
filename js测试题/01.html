@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>当前日期时间</title>
+</head>
+<body onload="showTime()">
+    <span id="content"></span>
+    <script>
+        var oToday;
+        function showTime(){
+            var oContent = document.getElementById('content');
+            oToday = new Date();
+            var oYear = oToday.getFullYear();
+            var oMonth = oToday.getMonth() + 1;//月份
+            var oDate = oToday.getDate();
+            var oHour = oToday.getHours();
+            var oMinute = oToday.getMinutes();
+            var oSecond = oToday.getSeconds();
+            var oWeek = oToday.getDay();//星期
+            if(oWeek ==0)
+            {
+                oWeek = 7;
+            }
+            var sNow = oYear + "年"+ oMonth +"月"+oDate +"日"+ oHour +"时"+ oMinute +"分"+oSecond+"秒" +"(星期"+oWeek+")";
+            oContent.innerHTML = sNow;
+        }
+        setInterval(function(){
+            showTime();
+        },1000)
+    </script>
+</body>
+</html>

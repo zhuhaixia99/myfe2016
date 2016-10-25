@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>改变下拉列表框的值时能显示当前选项的文本和值</title>
+</head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #hobby{
+            width: 100px;
+        }
+        input{
+            width: 80px;
+        }
+    </style>
+<body>
+<form action="">
+    <select name="hobby" id="hobby">
+        <option value="basketball">篮球</option>
+        <option value="music">音乐</option>
+        <option value="movie">电影</option>
+        <option value="car">车</option>
+    </select>
+    文本：<input type="text" id="content"/>
+    值：<input type="text" id="value"/>
+</form>
+    <script>
+        var oContent = document.getElementById('content');
+        var oValue = document.getElementById('value');
+        var oHobby =document.getElementById('hobby');
+        var aOption = oHobby.getElementsByTagName('option');
+        oHobby.onchange=function(){
+            for(var i=0;i<aOption.length;i++)
+            {
+                if(aOption[i].selected){
+                    oContent.value = aOption[i].innerHTML;
+                    oValue.value = aOption[i].value;
+                }
+            }
+        }
+
+
+    </script>
+</body>
+</html>
