@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    body{
+        font: normal 12px/17px Arial;
+    }
+    div{
+        padding: 2px;
+    }
+    input{
+        width: 100px;
+        border: solid 1px #888;
+    }
+    .focus{
+        border: 1px solid #f00;
+        background: #fcc;
+    }
+</style>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>个人基本信息</legend>
+            <div>
+                <label for="username">用户名：</label>
+                <input id="username" type="text" value="用户名"/>
+            </div>
+            <div>
+                <label for="password">密码：</label>
+                <input id="password" type="password" value="密码"/>
+            </div>
+            <div>
+                <label for="msg">详细信息</label>
+                <input id="msg" type="textarea" rows="3" cols="30" value="详细信息"/>
+            </div>
+        </fieldset>
+    </form>
+    <script src="../../jquery/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            var $input = $("input");
+            $input.on("focus",function(){
+                $(this).addClass("focus");
+                if($(this).val()==this.defaultValue){
+                    this.value="";
+                }
+            });
+            $input.on("blur",function(){
+                $(this).removeClass("focus");
+                /*if(this.value==""){
+                    this.value=this.defaultValue;
+                }
+                else{
+                    this.value=this.value;
+                }*/
+                $(this).val(this.value==""?this.defaultValue:this.value);
+            });
+        });
+    </script>
+</body>
+</html>
