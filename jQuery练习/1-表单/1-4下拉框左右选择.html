@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .content{
+            float: left;
+            width: 150px;
+            height: 200px;
+            margin: 10px;
+        }
+        .content select{
+            width: 150px;
+            height: 140px;
+        }
+        .content span{
+            background: #888;
+            color: #ffffff;
+            width: 150px;
+            height: 30px;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            margin-top: 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <select name="selectList" multiple="multiple" id="selectLeft">
+            <option value="1">选项1</option>
+            <option value="2">选项2</option>
+            <option value="3">选项3</option>
+            <option value="4">选项4</option>
+            <option value="5">选项5</option>
+            <option value="6">选项6</option>
+            <option value="7">选项7</option>
+        </select>
+        <div>
+            <span id="add">选中添加到右边&gt;&gt;</span>
+            <span id="add-all">全部添加到右边&gt;&gt;</span>
+        </div>
+    </div>
+    <div class="content">
+        <select name="selectList2" multiple="multiple"id="selectRight">
+            <option value="8">选项8</option>
+        </select>
+        <div>
+            <span id="remove">&lt;&lt;选中删除到左边</span>
+            <span id="remove-all">&lt;&lt;全部删除到左边</span>
+        </div>
+    </div>
+    <script src="../../jquery/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            //移到右边//获取选中的选项，删除并追加给对方
+            $("#add").on("click",function(){
+                $("#selectLeft option:selected").appendTo("#selectRight");
+            });
+            $("#add-all").on("click",function(){
+                $("#selectLeft option").appendTo("#selectRight");
+            });
+            //移到左边
+            $("#remove").on("click",function(){
+                $("#selectRight option:selected").appendTo("#selectLeft");
+            });
+            //获取全部的选项,删除并追加给对方
+            $("#remove-all").on("click",function(){
+                $("#selectRight option").appendTo("#selectLeft");
+            });
+            //双击选项
+            $("#selectLeft").on("dblclick",function(){
+                $("#selectLeft option:selected").appendTo("#selectRight");
+            });
+            $("#selectRight").on("dblclick",function(){
+                $("#selectRight option:selected").appendTo("#selectLeft");
+            });
+        });
+    </script>
+</body>
+</html>
