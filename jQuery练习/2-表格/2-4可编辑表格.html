@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body{
+            font-size:16px;
+        }
+        table{
+            border:1px solid black;
+            border-collapse:collapse;
+            width:400px;
+        }
+        table td,th{
+            width:50%;
+            border:1px solid black;
+            height:30px;
+        }
+        tbody th{
+            background-color:#abc;
+        }
+    </style>
+    <script src="../../jquery/jquery-1.12.4.js" type="text/javascript"></script>
+    <script>
+        $(function(){
+            $("tbody tr:even").css("background-color","#edf");//设置隔行变色
+
+            $("tbody td.editable").on("click",function(){
+                $nowThis = $(this);
+                if($nowThis.children('input[type="text"]').length >0){//判断是否已经插入input框，如果插入了就不在添加了
+                    return false;//方法返回，下面的代码都不会执行
+                }
+                $input=$('<input type="text"/>')//创建input
+                $input.css('border','none').width($(this).width())
+                        .css('background-color',$(this)
+                        .css('background-color'))
+                        .val($(this).text());//input的内容为td文本
+                $nowThis.empty().append($input);//td清空，插入input
+                $input.trigger('focus');//绑定焦点
+                $input.on("keyup",function(event){
+                    if(event.keyCode == 13){
+                        $nowThis.text($(this).val());
+                    }
+                });
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th colspan="2"> 鼠标点击表格就可以编辑</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>学号</th>
+        <th>姓名</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td class="editable">张三</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td class="editable">李四</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td class="editable">王五</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td class="editable">赵六</td>
+    </tr>
+    </tbody>
+
+</table>
+<!--<script>
+    $(function(){
+        $("tbody td.editable").on("click",function(){
+            if($('tbody td.editable').children('input[type="text"]').size()>0){
+                return false;
+            }
+            var $nowThis = $(this);
+            var $input=$('<input type="text"/>');
+            $input.val($nowThis.text());
+            $nowThis.empty().append($input);
+            //$input.trigger("focus");
+            $input.on("keyup",function(event){
+                if(event.keyCode==13){
+                    $nowThis.text($input.val());
+                }
+            })
+
+        });
+    });
+</script>-->
+</body>
+</html>
