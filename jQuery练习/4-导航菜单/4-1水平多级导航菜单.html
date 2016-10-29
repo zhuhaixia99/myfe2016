@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多级导航菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #menu .main-menu {
+            float: left;
+            background: #bbbbbb;
+            width: 120px;
+            height: 30px;
+            margin-right: 5px;
+        }
+
+        .main-menu a {
+            background: url("images/down.gif") no-repeat;
+            background-position: 3px center  ;
+            width: 100%;
+            height: 100%;
+            display: block;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        #menu .sub-menu {
+
+            display: none;
+        }
+
+        #menu .sub-menu li {
+            border-bottom: 1px dashed #000000;
+            background: #dddddd;
+        }
+
+        #menu .sub-menu a {
+            text-align: left;
+            text-indent: 10px;
+            background: #dddddd;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li class="main-menu">
+        <a href="#">link 1</a>
+        <ul class="sub-menu">
+            <li><a href="#">sublink 1</a></li>
+            <li><a href="#">sublink 2</a></li>
+            <li><a href="#">sublink 3</a></li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <a href="#">link 2</a>
+        <ul class="sub-menu">
+            <li><a href="#">sublink 1</a></li>
+            <li><a href="#">sublink 2</a></li>
+            <li><a href="#">sublink 3</a></li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <a href="#">link 3</a>
+        <ul class="sub-menu">
+            <li><a href="#">sublink 1</a></li>
+            <li><a href="#">sublink 2</a></li>
+            <li><a href="#">sublink 3</a></li>
+        </ul>
+    </li>
+</ul>
+<script src="../../jquery/jquery-1.12.4.js"></script>
+<script>
+/*    $(function(){
+        $("#menu .main-menu").hover(function(){
+            console.log($(this).children('ul').is(":animated"));
+            if(!$(this).children('ul').is(":animated")){
+
+                $(this).children('ul').slideDown("slow").end()
+                        .children("a").css("background-image","url('images/up.gif')");
+            }
+
+        },function(){
+                $(this).children('ul').slideUp('slow');
+                $(this).children("a").css("background-image","url('images/down.gif')");
+        });
+    });*/
+$(function(){
+    $("#menu .main-menu").hover(function(){
+        console.log($(this).children('ul').is(":animated"));
+            $(this).children('ul').stop().slideDown("slow").end()
+                    .children("a").css("background-image","url('images/up.gif')");
+    },function(){
+        $(this).children('ul').stop().slideUp('slow');
+        $(this).children("a").css("background-image","url('images/down.gif')");
+    });
+});
+</script>
+</body>
+</html>
