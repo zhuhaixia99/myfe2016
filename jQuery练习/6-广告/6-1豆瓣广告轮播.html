@@ -417,7 +417,8 @@
         $li.on("click", function () {
             var $index = $(this).index();
             $(this).addClass("selected").siblings().removeClass("selected");
-            $("#content .page:eq(" + $index + ")").addClass("select").siblings().removeClass("select");
+            //$("#content .page:eq(" + $index + ")").addClass("select").siblings().removeClass("select");
+            $("#content .page:eq(" + $index + ")").show().siblings().hide();
             iNow = $index;
         }).hover(function(){
                     clearInterval(timer);
