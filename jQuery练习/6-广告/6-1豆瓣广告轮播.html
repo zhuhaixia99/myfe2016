@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>豆瓣广告轮播</title>
+</head>
+<style>
+    body {
+        font: 12px Arial, Helvetica, sans-serif;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: #669;
+        padding: 0 9px 0 5px;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    img {
+        border: 0;
+    }
+
+    #nav {
+        margin-top: 50px;
+    }
+
+    #nav ul {
+        height: 25px;
+        width: 600px;
+        background: #eeeeee;
+    }
+
+    #nav li {
+        float: left;
+        height: 22px;
+        line-height: 22px;
+        margin-top: 3px;
+        padding-left: 4px;
+    }
+
+    .bottomBorder {
+        position: relative;
+        border: 1px solid #dddddd;
+        width: 598px;
+    }
+
+    #content {
+        background: #eeeeee;
+        width: 600px;
+        height: 270px;
+
+    }
+
+    #content .page {
+        display: none;
+    }
+
+    #content .content-msg {
+        width: 300px;
+        height: 89px;
+        float: left;
+        border-bottom: 1px dashed #777777;
+    }
+
+    #content .content-msg-img {
+        float: left;
+        width: 48px;
+        height: 48px;
+        margin: 21px 10px;
+    }
+
+    #content .content-msg-text {
+        float: right;
+        width: 212px;
+        height: 48px;
+        margin: 21px 10px;
+        line-height: 18px;
+    }
+
+    #content div.select {
+        display: block;
+    }
+
+    #nav li.selected {
+        background: #fff;
+    }
+
+</style>
+<body>
+<div id="nav">
+    <ul>
+        <li class="selected"><a href="#">生活</a></li>
+        <li><a href="#">兴趣</a></li>
+        <li><a href="#">文化艺术</a></li>
+        <li><a href="#">音乐电影</a></li>
+        <li><a href="#">本地</a></li>
+        <li><a href="#">其它</a></li>
+    </ul>
+</div>
+<div class="bottomBorder"></div>
+<div id="content">
+    <div class="select page">
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g131612-4.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">法兰西情结:美酒，美食，...</a>
+
+                <p>没有想过可以在众人面前演奏， 只是喜欢一个人畅游在...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g166185-3.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">符号学研究</a>
+
+                <p>每人发起一个发言， 定时或不定时的给自己回复一下，给自己...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g205089-1.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">上海马路上海弄堂</a>
+
+                <p>我承认我的英语很破， 美音不行，英音更学不会。。。 最拿...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g225599-3.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">让我们一起做晨型人吧！</a>
+
+                <p>在日本，有一种叫做“晨型人”的新型族群正在迅速掀起风潮。...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g361153-1.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">看起来就是比你们年轻</a>
+
+                <p>我们好年轻～ 我们好娇嫩～ 我们都是无敌青春美少女～～...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g12238-2.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">爱狗俱乐部</a>
+
+                <p>狗狗~~~爱狗俱乐部． 欢迎大家加入　讨论一些养狗心得．...</p>
+            </div>
+        </div>
+    </div>
+    <div class="page">
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g147604-45.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">法兰西情结:美酒，美食，...</a>
+
+                <p>没有想过可以在众人面前演奏， 只是喜欢一个人畅游在...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g58422-9.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">符号学研究</a>
+
+                <p>每人发起一个发言， 定时或不定时的给自己回复一下，给自己...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g205089-1.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">上海马路上海弄堂</a>
+
+                <p>我承认我的英语很破， 美音不行，英音更学不会。。。 最拿...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g225599-3.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">让我们一起做晨型人吧！</a>
+
+                <p>在日本，有一种叫做“晨型人”的新型族群正在迅速掀起风潮。...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g361153-1.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">看起来就是比你们年轻</a>
+
+                <p>我们好年轻～ 我们好娇嫩～ 我们都是无敌青春美少女～～...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g12238-2.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">images/g12238-2.jpg</a>
+
+                <p>狗狗~~~爱狗俱乐部． 欢迎大家加入　讨论一些养狗心得．...</p>
+            </div>
+        </div>
+    </div>
+    <div class="page">
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g205665-1.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">法兰西情结:美酒，美食，...</a>
+
+                <p>没有想过可以在众人面前演奏， 只是喜欢一个人畅游在...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g71879-1.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">符号学研究</a>
+
+                <p>每人发起一个发言， 定时或不定时的给自己回复一下，给自己...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g205089-1.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">上海马路上海弄堂</a>
+
+                <p>我承认我的英语很破， 美音不行，英音更学不会。。。 最拿...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g225599-3.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">让我们一起做晨型人吧！</a>
+
+                <p>在日本，有一种叫做“晨型人”的新型族群正在迅速掀起风潮。...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g361153-1.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">看起来就是比你们年轻</a>
+
+                <p>我们好年轻～ 我们好娇嫩～ 我们都是无敌青春美少女～～...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g12238-2.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">images/g12238-2.jpg</a>
+
+                <p>狗狗~~~爱狗俱乐部． 欢迎大家加入　讨论一些养狗心得．...</p>
+            </div>
+        </div>
+    </div>
+    <div class="page">
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g71879-1.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">法兰西情结:美酒，美食，...</a>
+
+                <p>没有想过可以在众人面前演奏， 只是喜欢一个人畅游在...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g77374-2.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">符号学研究</a>
+
+                <p>每人发起一个发言， 定时或不定时的给自己回复一下，给自己...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g205089-1.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">上海马路上海弄堂</a>
+
+                <p>我承认我的英语很破， 美音不行，英音更学不会。。。 最拿...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g225599-3.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">让我们一起做晨型人吧！</a>
+
+                <p>在日本，有一种叫做“晨型人”的新型族群正在迅速掀起风潮。...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g361153-1.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">看起来就是比你们年轻</a>
+
+                <p>我们好年轻～ 我们好娇嫩～ 我们都是无敌青春美少女～～...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g12238-2.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">images/g12238-2.jpg</a>
+
+                <p>狗狗~~~爱狗俱乐部． 欢迎大家加入　讨论一些养狗心得．...</p>
+            </div>
+        </div>
+    </div>
+    <div class="page">
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g85862-1.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">法兰西情结:美酒，美食，...</a>
+
+                <p>没有想过可以在众人面前演奏， 只是喜欢一个人畅游在...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g99630-1.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">符号学研究</a>
+
+                <p>每人发起一个发言， 定时或不定时的给自己回复一下，给自己...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g205089-1.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">上海马路上海弄堂</a>
+
+                <p>我承认我的英语很破， 美音不行，英音更学不会。。。 最拿...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g225599-3.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">让我们一起做晨型人吧！</a>
+
+                <p>在日本，有一种叫做“晨型人”的新型族群正在迅速掀起风潮。...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g361153-1.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">看起来就是比你们年轻</a>
+
+                <p>我们好年轻～ 我们好娇嫩～ 我们都是无敌青春美少女～～...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g12238-2.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">images/g12238-2.jpg</a>
+
+                <p>狗狗~~~爱狗俱乐部． 欢迎大家加入　讨论一些养狗心得．...</p>
+            </div>
+        </div>
+    </div>
+    <div class="page">
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g111124-3.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">法兰西情结:美酒，美食，...</a>
+
+                <p>没有想过可以在众人面前演奏， 只是喜欢一个人畅游在...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g118474-1.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">符号学研究</a>
+
+                <p>每人发起一个发言， 定时或不定时的给自己回复一下，给自己...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g205089-1.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">上海马路上海弄堂</a>
+
+                <p>我承认我的英语很破， 美音不行，英音更学不会。。。 最拿...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g225599-3.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">让我们一起做晨型人吧！</a>
+
+                <p>在日本，有一种叫做“晨型人”的新型族群正在迅速掀起风潮。...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g361153-1.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">看起来就是比你们年轻</a>
+
+                <p>我们好年轻～ 我们好娇嫩～ 我们都是无敌青春美少女～～...</p>
+            </div>
+        </div>
+        <div class="content-msg">
+            <div class="content-msg-img"><img src="images/g12238-2.jpg" alt=""/></div>
+            <div class="content-msg-text">
+                <a href="#">images/g12238-2.jpg</a>
+
+                <p>狗狗~~~爱狗俱乐部． 欢迎大家加入　讨论一些养狗心得．...</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../jquery/jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        var timer;
+        var iNow = 0;
+        var $li = $("#nav li")
+        $li.on("click", function () {
+            var $index = $(this).index();
+            $(this).addClass("selected").siblings().removeClass("selected");
+            $("#content .page:eq(" + $index + ")").addClass("select").siblings().removeClass("select");
+            iNow = $index;
+        }).hover(function(){
+                    clearInterval(timer);
+                },function(){
+                    run();
+                });
+        function run(){
+            timer = setInterval(function(){
+                iNow++;
+                if(iNow == $li.size()){
+                    iNow = 0;
+                }
+                $li.eq(iNow).trigger('click');
+            },2000);
+            console.log(Math.random());
+        }
+        run();
+    });
+</script>
+</body>
+</html>
