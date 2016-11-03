@@ -118,7 +118,8 @@ img{
     float: right;
     background:url("../images/css-spirit.png") 0 -102px no-repeat;
     position: absolute;
-    top: 205px;
+    top: 50%;
+    margin-top: -25px;
     right: 0;
     cursor: pointer;
     z-index: 20;
@@ -199,6 +200,36 @@ img{
     width: 250px;
     height: 200px;
 }
+#works .link-to{
+    background: #00aeff;
+    position: relative;
+}
+#works .link-to div{
+    background: url("../images/css-spirit.png") 0 -284px no-repeat;
+    width: 70px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+#works .link-to span{
+    font: 24px Myriad Pro Regular;
+    width: 100%;
+    height: 50px;
+    float: left;
+    color: #fff;
+    line-height: 50px;
+    text-align: center;
+}
+#works .link-to p{
+    font: 15px Myriad Pro Regular;
+    width: 100%;
+    float: left;
+    color: #fff;
+    line-height: 26px;
+    text-align: center;
+}
 /*works end*/
 /*clients start*/
 #clients{
@@ -214,17 +245,111 @@ img{
 }
 #clients .container{
     height: 83px;
-    width: 1002px;
+    width: 1000px;
     float: left;
+    margin-left: 1px;
+    position: relative;
+    overflow:hidden ;
 }
-#clients .content img{
-    width: 1002px;
+#clients .content{
     height: 83px;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+}
+#clients .content img,#clients .content a{
+    float: left;
+    width: 250px;
+    height: 83px;
+}
+/*#clients .content a{
+    float: left;
+    width: 250px;
+    height: 83px;
+}*/
+#clients .left{
+    background: url("../images/css-spirit.png") 0 -172px no-repeat;
+    float: left;
+    width: 24px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    bottom: 34px;
+    cursor: pointer;
+}
+#clients .right{
+    background: url("../images/css-spirit.png") 0 -232px no-repeat;
+    float: right;
+    width: 24px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    bottom: 34px;
+    cursor: pointer;
 }
 /*clients end*/
 /*footer start*/
 #footer{
     height: 176px;
     background: #31333e;
+
+}
+#footer div.text{
+    width: 500px;
+    height: 176px;
+    position: relative;
+    float: left;
+}
+#footer .text p{
+    font: 15px Myriad Pro Regular;
+    width: 100%;
+    color: #e2e7ed;
+    line-height: 24px;
+    margin-top: 45px;
+    float: left;
+}
+#footer .text span{
+    float: left;
+    font: 12px Myriad Pro Regular;
+    width: 100%;
+    color: #e2e7ed;
+    line-height: 24px;
+    padding-bottom: 45px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+#footer ul.share{
+    width: 502px;
+    height: 176px;
+    float: right;
+}
+#footer .share li{
+    width: 36px;
+    height: 36px;
+    margin-right: 12px;
+    float: left;
+    margin-top: 45px;
+}
+#footer .share-f{
+    background: url("../images/css-spirit.png") 0 -336px no-repeat;
+    margin-left: 223px;
+}
+#footer .share-in{
+    background: url("../images/css-spirit.png") 0 -392px no-repeat;
+}
+#footer .share-three{
+    background: url("../images/css-spirit.png") 0 -449px no-repeat;
+}
+#footer .share-weiBo{
+    background: url("../images/css-spirit.png") 0 -506px no-repeat;
+}
+#footer .share-five{
+    background: url("../images/css-spirit.png") 0 -563px no-repeat;
+
+}
+#footer .share-six{
+    background: url("../images/css-spirit.png") 0 -620px no-repeat;
 }
 /*footer end*/
