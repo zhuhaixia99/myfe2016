@@ -61,6 +61,19 @@ $(function(){
     run();
     /*轮播图end*/
     /*下面的轮播图start*/
-
+    var $tabContent = $("#tab-content");
+    var contentWidth = $tabContent.width();
+    $tabContent.width(4 * contentWidth);
+    $tabContent.html($tabContent.html() + $tabContent.html() + $tabContent.html() + $tabContent.html());
+    var $tabA = $("#tab a");
+    $("#tab li").mouseover(function(){
+        $(this).addClass("selected").siblings().removeClass("selected");
+        $tabA.removeClass("select");
+        $tabA.eq($(this).index()).addClass("select");
+        $tabContent.animate({
+            left:-$(this).index() * contentWidth
+        },1000);
+    });
     /*下面的轮播图end*/
+
 });
