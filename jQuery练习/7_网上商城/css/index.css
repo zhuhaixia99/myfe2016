@@ -29,7 +29,6 @@ image{
 #header{
     height: 105px;
     background: url("../images/headerbg.png");
-
 }
 #header a.logo{
     float: left;
@@ -125,7 +124,6 @@ image{
     width: 187px;
     height: 560px;
     margin-right:11px ;
-
 }
 #classification h2{
     height: 30px;
@@ -164,7 +162,6 @@ image{
     color: #444;
     position: relative;
 }
-
 #classification .classification-content a.hot{
     color: #F9044E;
 }
@@ -179,7 +176,6 @@ image{
     width: 21px;
     float: left;
 }
-
 #img-turns{
     width: 550px;
     height: 321px;
@@ -215,7 +211,6 @@ image{
     bottom: 0;
     z-index: 20;
 }
-
 #img-turns .img-link li{
     float: left;
     height: 42px;
@@ -252,21 +247,16 @@ image{
     text-align: center;
     color: #FFFFFF;
 }
-
-
 #news{
     width: 230px;
     height: 321px;
     /*background: #FFF38F;*/
-
 }
 #news .news-sale{
     width: 100%;
     height: 176px;
     margin-bottom: 10px;
 }
-
-
 #news h2 {
     height: 23px;
     line-height: 23px;
@@ -292,11 +282,12 @@ image{
 #news .news-inf a:hover{
     color: #008CD7;
 }
-
 #brand-activities{
     width: 790px;
     height: 230px;
     margin-top: 10px;
+    position: relative;
+    overflow: hidden;
 }
 #tab{
     border-bottom: 1px solid #E4E4E4;
@@ -317,14 +308,13 @@ image{
     top: 10px;
 }
 #tab a{
-
     color: #000000;
     display: block;
     height: 20px;
     line-height: 20px;
     padding: 0 10px;
 }
-#tab a.selected{
+#tab a.select{
     background-color: #FA5889;
     color: #FFFFFF;
 }
@@ -332,7 +322,6 @@ image{
     float: left;
     background-color: #E4E4E4;
     margin-right: 10px ;
-
 }
 #tab li.selected{
     background: url("../images/chos.gif") no-repeat scroll 50% bottom transparent;
@@ -340,11 +329,15 @@ image{
 }
 #tab-content{
     /*width: 790px;*/
+    float: left;
+    position: absolute;
+    top: 29px;
+    left: 0;
 }
 #tab-content a{
     display: block;
     float: left;
-    margin: 8px 6px;
+    margin: 8px 7px;
 }
 #tab-content span{
     background-color: #EFEFEF;
@@ -356,10 +349,6 @@ image{
     width: 183px;
     display: block;
 }
-
-
-
-
 /*content end*/
 /*footer end*/
 #footer{
