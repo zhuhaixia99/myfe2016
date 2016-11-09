@@ -3,12 +3,13 @@
  */
 $(function(){
     /*放大镜start*/
-    var $drag = $("#goods-img .drag");
-    var $smallPic = $("#goods-img .small-pic");
-    var $bigPic = $("#goods-img .big-pic");
-    var $bigImg = $("#goods-img .big-pic img")
+    var $goodsImg = $("#goods-img");
+    var $drag = $(".drag",$goodsImg);
+    var $smallPic = $(".small-pic",$goodsImg);
+    var $bigPic = $(".big-pic",$goodsImg);
+    var $bigImg = $(".big-pic img",$goodsImg);
     $smallPic.mouseenter(function(){
-        $drag.css("display","block");
+        $drag.show();
         $bigPic.css("display","block");
     });
     $smallPic.mousemove(function(event){
@@ -45,24 +46,26 @@ $(function(){
     });
     /*放大镜end*/
     /*商品介绍选项卡start*/
-    var $li = $("#product-intro .product-tab li");
-    var $div = $("#product-intro .product-text div");
+    var $productIntro = $("#product-intro");
+    var $li = $(".product-tab li",$productIntro);
+    var $div = $(".product-text div",$productIntro);
     $li.on("click",function(){
         $(this).addClass("selected").siblings().removeClass("selected");
         $div.eq($(this).index()).addClass("selected").siblings().removeClass("selected");
     });
     /*商品介绍选项卡end*/
     /*选择尺寸start*/
-    var $span = $("#goods-detail span.pro-size-num");
-    var $li = $("#goods-detail .pro-size li");
+    var $goodDetail =$("#goods-detail");
+    var $span = $("span.pro-size-num",$goodDetail);
+    var $li = $(".pro-size li",$goodDetail);
     $li.on("click",function(){
         $(this).addClass("select").siblings().removeClass("select");
         $span.html($(this).html());
     });
     /*选择尺寸end*/
     /*选择数量start*/
-    var $sumPrice = $("#goods-detail span.sum-price");
-    var $selectNum = $("#goods-detail .pro-num select");
+    var $sumPrice = $("span.sum-price",$goodDetail);
+    var $selectNum = $(".pro-num select",$goodDetail);
     $selectNum.change(function(){
         $sumPrice.html($selectNum.val() * 200);
 
@@ -75,15 +78,15 @@ $(function(){
     });
     /*选择数量end*/
     /*评分start*/
-    var $scroeLi = $("#goods-detail .rating li");
-    var $scroeUl = $("#goods-detail ul.rating");
+    var $scroeLi = $(".rating li",$goodDetail);
+    var $scroeUl = $("ul.rating",$goodDetail);
     var scroeNum = 0;
     $scroeLi.hover(function(){
         scroeNum = $(this).index()+1;
         $scroeUl.css("background-position-y",-(scroeNum+5)*16);
 
     },function(){
-        {$scroeUl.css("background-position-y",0);}
+        $scroeUl.css("background-position-y",0);
     });
     $scroeLi.on("click",function(){
         $scroeLi.off("mouseleave");
@@ -96,12 +99,13 @@ $(function(){
     });
     /*评分end*/
     /*左侧切换图片start*/
-    var $imgListLi = $("#goods-img .imgList li");
+    var $imgListLi = $(".imgList li",$goodsImg);
     $imgListLi.hover(function(){
         $(this).addClass("selected");
     },function(){
         $(this).removeClass("selected");
     });
+
     $imgListLi.on("click",function(){
         var imgSrc = $(this).find("img").attr("src");/*找到小图片的路径*/
         var i = imgSrc.lastIndexOf(".");/*找到后缀名的起始位置*/
@@ -109,15 +113,15 @@ $(function(){
         imgSrc = imgSrc.substring(0,i);
         var imgSrc_small = imgSrc + "_small" + suffix;
         var imgSrc_big = imgSrc + "_big" + suffix;
-        $("#goods-img .small-pic img").attr("src",imgSrc_small);
-        $("#goods-img .big-pic img").attr("src",imgSrc_big);
-        $("#goods-img .clear-img a").attr("href",imgSrc_small);
+        $(".small-pic img",$goodsImg).attr("src",imgSrc_small);
+        $(".big-pic img",$goodsImg).attr("src",imgSrc_big);
+        $(".clear-img a",$goodsImg).attr("href",imgSrc_small);
     });
     /*左侧切换图片end*/
     /*右侧切换颜色和图片start*/
-    var $colorLi = $("#goods-detail .color-change li");
-    var $colorText = $("#goods-detail span.color-text");
-    var $colorImg = $("#goods-detail .color-change li img");
+    var $colorLi = $(".color-change li",$goodDetail);
+    var $colorText = $("span.color-text",$goodDetail);
+    var $colorImg = $(".color-change li img",$goodDetail);
     $colorLi.on("click",function(){
         $(this).addClass("hover").siblings().removeClass("hover");
         $colorText.html($colorImg.eq($(this).index()).prop("alt"));
@@ -127,12 +131,13 @@ $(function(){
         imgSrc = imgSrc.substring(0,i);
         var imgSrc_small = imgSrc + "_one_small" + suffix;
         var imgSrc_big = imgSrc + "_one_big" + suffix;
-        $("#goods-img .small-pic img").attr("src",imgSrc_small);
-        $("#goods-img .big-pic img").attr("src",imgSrc_big);
-        $("#goods-img .clear-img a").attr("href",imgSrc_small);
+        $(".small-pic img",$goodsImg).attr("src",imgSrc_small);
+        $(".big-pic img",$goodsImg).attr("src",imgSrc_big);
+        $(".clear-img a",$goodsImg).attr("href",imgSrc_small);
+
         var newImgSrc = imgSrc.replace("images/pro_img/","");
-        $("#goods-img .imgList li").hide();
-        $("#goods-img .imgList").find(".imgList_"+newImgSrc).show();
+        $(".imgList li",$goodsImg).hide();
+        $(".imgList",$goodsImg).find(".imgList_"+newImgSrc).show();
     });
     /*右侧切换颜色和图片end*/
     /*var a=3;
