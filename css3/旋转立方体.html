@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #000000;
+            -webkit-perspective: 800px;
+            /*transform-style: preserve-3d;*/
+        }
+        div[class]{
+            background: #ffffff;
+            width:200px;
+            height: 200px;
+            opacity: 0.4;
+            font-size: 60px;
+            text-align: center;
+            line-height: 200px;
+            position: absolute;
+            border-radius: 20px;
+            /*box-shadow: 0 0 20px 5px #000;*/
+        }
+        .four{
+            -webkit-transform: rotateY(180deg) translateZ(100px) ;
+        }
+        .two{
+            -webkit-transform: translateZ(100px) ;
+        }
+        .one{
+            -webkit-transform: rotateX(90deg) translateZ(100px) ;
+        }
+        .six{
+            -webkit-transform: rotateX(-90deg)  translateZ(100px) ;
+        }
+        .three{
+            -webkit-transform: rotateY(90deg) translateZ(100px) ;
+        }
+        .five{
+            -webkit-transform: rotateY(-90deg) translateZ(100px) ;
+        }
+        #container{
+            width: 200px;
+            height: 200px;
+            position: relative;
+            margin: 100px auto;
+            transform-style: preserve-3d;
+            /*-webkit-transform: rotateX(45deg) rotateY(45deg);*/
+            -webkit-animation: xxx 5s ease infinite;
+        }
+        @-webkit-keyframes xxx {
+            0%{
+
+            }
+            100%{
+                /*-webkit-transform-origin: left bottom;*/
+
+                -webkit-transform: rotate3d(100,100,100,-720deg);
+            }
+        }
+        /* scale3d(1.5,1.5,1.5)*/
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="two">2</div>
+    <div class="four">4</div>
+    <div class="one">1</div>
+    <div class="six">6</div>
+    <div class="three">3</div>
+    <div class="five">5</div>
+</div>
+
+</body>
+</html>
