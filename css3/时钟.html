@@ -8,19 +8,28 @@
             margin: 0;
             padding: 0;
         }
+        ul{
+            list-style: none;
+        }
         #clock{
             width: 400px;
             height: 400px;
+            background: #ddd;
             border: 2px solid #000000;
             border-radius: 200px;
             margin: 100px auto;
             position: relative;
             -webkit-perspective: 800px;
+            box-shadow: 0 0 20px 5px #555;
         }
         #hour,#minute,#second{
             position: absolute;
             left: 200px;
             -webkit-transform-origin: 0 50%;
+            /**/
+        }
+        .turn{
+            -webkit-transition: -webkit-transform 1s ease-out;
         }
         #hour{
             top: 195px;
@@ -32,21 +41,62 @@
             top: 197px;
             width: 120px;
             height: 6px;
-            background: #ccc;
+            background: #888;
         }
         #second{
             top: 198px;
             width: 140px;
             height: 4px;
             background: #ff0000;
+            z-index: 10;
+        }
+        #centerPoint{
+            position: absolute;
+            top: 194px;
+            left: 194px;
+            width: 12px;
+            height: 12px;
+            background: #ff0000;
+            border-radius: 6px;
+            border: 1px solid #ff0000;
+        }
+        #showDate{
+            width: 240px;
+            height: 40px;
+            /*background: #FFFFEE;*/
+            position: absolute;
+            top: 320px;
+            left: 80px;
+            text-align: center;
+            line-height: 40px;
+        }
+        #dial{
+            position: absolute;
+        }
+        #dial li{
+            position: absolute;
+            width: 4px;
+            height: 8px;
+            background: #333;
+            top: 0;
+            left: 198px;
+            -webkit-transform-origin: center 200px;
+            /*-webkit-transform: rotate(6deg);*/
+        }
+        #dial li:nth-child(5n+1){
+            height: 16px;
+            background: #ff6666;
         }
     </style>
 </head>
 <body>
 <div id="clock">
-    <div id="hour"></div>
-    <div id="minute"></div>
-    <div id="second"></div>
+    <ul id="dial"></ul>
+    <div id="hour" class="turn"></div>
+    <div id="minute" class="turn"></div>
+    <div id="second" class="turn"></div>
+    <div id="showDate"></div>
+    <div id="centerPoint"></div>
 </div>
 </body>
 <script>
@@ -54,20 +104,51 @@
     var oHour = document.getElementById('hour');
     var oMinute = document.getElementById('minute');
     var oSecond  = document.getElementById('second');
+    var oDial = document.getElementById('dial');
+    var oShowDate = document.getElementById('showDate');
     var timer;
-    var today,nowHour,nowMinute,nowSeconds;
+    var today,nowHour,nowMinute,nowSeconds,nowYear,nowMonth,nowDate,nowWeekDay;
+    var dateHtml = "";
+    var content = '';
+    for(var i=0;i<60;i++){
+        content+= '<li style="-webkit-transform: rotate('+6*i+'deg)"></li>';
+    }
+    oDial.innerHTML = content;
 
-
-
-    timer = setInterval(function(){
-        showTime();
-    },1000);
-    function showTime(){
+    var weekday=new Array(7);
+    weekday[0]="Sunday";
+    weekday[1]="Monday";
+    weekday[2]="Tuesday";
+    weekday[3]="Wednesday";
+    weekday[4]="Thursday";
+    weekday[5]="Friday";
+    weekday[6]="Saturday";
+    setTimeout(function(){
         today = new Date();
-        nowHour = today.getHours();
-        nowMinute = today.getMinutes();
         nowSeconds = today.getSeconds();
-        oHour.style.cssText = '-webkit-transform:rotate('+(nowHour*30-90+0.5*nowMinute)+'deg);';
+        nowMinute = today.getMinutes() + 1/60*nowSeconds;
+        nowHour = today.getHours() + 1/60*nowMinute;
+        oHour.style.cssText = '-webkit-transform:rotate('+(nowHour*30-90)+'deg);';
+        oMinute.style.cssText ='-webkit-transform:rotate('+(nowMinute*6-90)+'deg)';
+        oSecond.style.cssText ='-webkit-transform:rotate('+(nowSeconds*6-90)+'deg)';
+
+    },50);
+    timer = setInterval(showTime,1000);
+    function showTime(){
+        oHour.className = "";
+        oMinute.className = "";
+        oSecond.className = "";
+        today = new Date();
+        nowYear = today.getFullYear();
+        nowMonth = today.getMonth();
+        nowDate = today.getDate();
+        nowWeekDay = today.getDay();
+        dateHtml = nowYear+'-'+(nowMonth+1) + '-' +nowDate+' '+ weekday[nowWeekDay];
+        oShowDate.innerHTML = dateHtml;
+        nowSeconds = today.getSeconds();
+        nowMinute = today.getMinutes() + 1/60*nowSeconds;
+        nowHour = today.getHours() + 1/60*nowMinute;
+        oHour.style.cssText = '-webkit-transform:rotate('+(nowHour*30-90)+'deg);';
         oMinute.style.cssText ='-webkit-transform:rotate('+(nowMinute*6-90)+'deg)';
         oSecond.style.cssText ='-webkit-transform:rotate('+(nowSeconds*6-90)+'deg)';
     }
