@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+        }
+        #container{
+            width: 100%;
+            height: 100%;
+            background: url("img/bg.jpg");
+        }
+        .img{
+            width: 125px;
+            height: 125px;
+            border: 5px solid #fff;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <div id="next"></div>
+    <div id="prev"></div>
+
+    <script>
+        var oContainer = document.getElementById('container');
+        var sumImg = 0;
+        var imgNum=24;
+        for(var i = 0;i<imgNum/2;i++){
+            var oImg = new Image();
+            oImg.onload = function(){
+                sumImg++;
+                if(sumImg ==24){
+                    loadSuccess();
+                }
+            };
+            oImg.src = 'img/'+(i+1)+'.jpg';
+        }
+        for(var i=0;i<imgNum/2;i++){
+            var oImg = new Image();
+            oImg.onload = function(){
+                sumImg++;
+                if(sumImg == 24){
+                    loadSuccess();
+                }
+            };
+        }
+        function loadSuccess(){
+            for(var i=0;i<4;i++){
+                for(var j=0;j<6;j++){
+                    var oDiv = document.createElement('div');
+                }
+            }
+        }
+</script>
+</body>
+</html>
