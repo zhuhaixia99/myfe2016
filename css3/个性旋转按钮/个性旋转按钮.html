@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #container{
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+        }
+        #menu img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: -webkit-transform 1s ease;
+        }
+        #menu,#home{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            -webkit-transform-origin: center center;
+            transition: -webkit-transform 1s ease;
+            cursor: pointer;
+        }
+        .big{
+            -webkit-animation: big .4s ease;
+        }
+        @-webkit-keyframes big {
+            from{
+
+            }
+            to{
+
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="menu">
+        <img src="img/close.png" alt=""/>
+        <img src="img/full.png" alt=""/>
+        <img src="img/open.png" alt=""/>
+        <img src="img/prev.png" alt=""/>
+        <img src="img/refresh.png" alt=""/>
+    </div>
+    <div id="home">
+        <img src="img/home.png" alt=""/>
+    </div>
+</div>
+<script>
+    var oHome = document.getElementById('home');
+    var oMenu = document.getElementById('menu');
+    var aImg = oMenu.getElementsByTagName('img');
+    var isRound = true;
+    var x,y;
+    oHome.onclick = function(){
+        if(isRound){
+            oHome.style.WebkitTransform = 'rotate(-360deg)';
+            for(var i = 0;i<aImg.length;i++){
+                (function(index){
+                    setTimeout(function(){
+                        x = -150 * Math.sin((90/4*index)*(Math.PI/180));
+                        y = -150 * Math.cos((90/4*index)*(Math.PI/180));
+                        aImg[index].style.WebkitTransform = 'translate('+x+'px,'+y+'px) rotate(-360deg)';
+                        aImg[index].style.webkitTransitionDuration = '1s';
+                    },100*index);
+                })(i);
+            }
+        }else{
+            for(var i = 0;i<aImg.length;i++){
+                (function(index){
+                    setTimeout(function(){
+                        aImg[index].style.WebkitTransform = 'translate(0px,0px) rotate(0deg)';
+                        aImg[index].style.webkitTransitionDuration = '1s';
+                    },100*(aImg.length-index));
+                })(i);
+            }
+            oHome.style.WebkitTransform = 'rotate(0deg)';
+        }
+        isRound = !isRound;
+    };
+
+    for(var i=0;i<aImg.length;i++){
+        aImg[i].addEventListener('click',fun,false);
+    }
+    function fun() {
+        var currTransform = this.style.WebkitTransform;
+        this.style.webkitTransitionDuration = '0.3s';
+        this.style.WebkitTransform = currTransform + ' scale(2)';
+        this.style.opacity = '0.3';
+        var fnEnd = function(){
+            this.style.WebkitTransform = currTransform;
+            this.style.opacity = '1';
+            this.removeEventListener('webkitTransitionEnd',fnEnd);
+        };
+        this.addEventListener('webkitTransitionEnd',fnEnd,false);
+    }
+</script>
+</body>
+</html>
