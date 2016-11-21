@@ -26,6 +26,32 @@
             height: 125px;
             border: 5px solid #fff;
             position: absolute;
+            left: -150px;
+            top: -150px;
+            -webkit-transition: all 1.5s ease-in-out;
+        }
+        .img span{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            opacity: 0;
+            -webkit-transition: opacity 1.5s ease-in-out;
+        }
+        #next,#prev{
+            width: 50px;
+            height: 80px;
+            position: absolute;
+            top:50%;
+            margin-top: -40px;
+            display: none;
+        }
+        #next{
+            background: url(img/next.png) center no-repeat #fff;
+            right: 0;
+        }
+        #prev{
+            background: url(img/prev.png) center no-repeat #fff;
+            left: 0;
         }
     </style>
 </head>
@@ -38,14 +64,17 @@
 
     <script>
         var oContainer = document.getElementById('container');
+        var oPrev = document.getElementById('prev');
+        var oNext = document.getElementById('next');
         var sumImg = 0;
-        var imgNum=24;
+        var imgNum=48;
+        var iNow = 0;
         for(var i = 0;i<imgNum/2;i++){
             var oImg = new Image();
             oImg.onload = function(){
                 sumImg++;
-                if(sumImg ==24){
-                    loadSuccess();
+                if(sumImg ==imgNum){
+                    loadSuccess();//图片全部加载完成，执行动画
                 }
             };
             oImg.src = 'img/'+(i+1)+'.jpg';
@@ -54,18 +83,132 @@
             var oImg = new Image();
             oImg.onload = function(){
                 sumImg++;
-                if(sumImg == 24){
+                if(sumImg == imgNum){
                     loadSuccess();
                 }
             };
+            oImg.src = 'img/thumbs/'+(i+1)+'.jpg';
         }
-        function loadSuccess(){
+        //获取行高 和 列宽
+        var rowHeight = (oContainer.offsetHeight - 125*4)/5;
+        var colWidth = (oContainer.offsetWidth - 125*6)/7;
+        var oDivIndex = 0;
+        function loadSuccess(){//执行开始动画函数
             for(var i=0;i<4;i++){
                 for(var j=0;j<6;j++){
                     var oDiv = document.createElement('div');
+                    oDiv.pos = {
+                        left:j * (colWidth + 125) + colWidth,//计算每张图片的目标位置
+                        top:i * (rowHeight + 125) + rowHeight
+                    };
+                    oDiv.rowCol = {//存入每个div的行列坐标，方便下面调用
+                        row:i,
+                        col:j
+                    };
+                    oDiv.divIndex = oDivIndex;//存入一个图片的索引
+                    oDiv.className = 'img';
+                    oDiv.style.background = 'url("img/thumbs/'+(oDivIndex+1)+'.jpg")';
+                    oDiv.innerHTML = '<span></span>';
+                    oDiv.onclick = oDivClick; //给每个div绑定一个点击事件
+                    oContainer.appendChild(oDiv);
+                    oDivIndex++;
                 }
             }
+
+
+            var aDiv = oContainer.getElementsByTagName('div');
+            var timer = setInterval(function(){
+                oDivIndex--;
+                aDiv[oDivIndex].style.left = aDiv[oDivIndex].pos.left + "px";
+                aDiv[oDivIndex].style.top = aDiv[oDivIndex].pos.top + "px";
+                aDiv[oDivIndex].style.WebkitTransform = 'rotate('+(Math.random()*40-20)+'deg)';//随机生成-20 到 +20之间的随机数，设置旋转角度
+                if(oDivIndex ==0)
+                {
+                    clearInterval(timer);
+                }
+            },100);
+
+            var bFlag = true;
+            var width = (oContainer.offsetWidth-6*125)/2;//div聚在一起时左侧宽度
+            var height = (oContainer.offsetHeight-4*125)/2;
+            function funEnd(){
+                this.style.left = this.rowCol.col*125 + width + "px";
+                this.style.top = this.rowCol.row*125 + height + "px";
+                this.style.webkitTransform = 'rotate(0deg)';
+                this.removeEventListener('webkitTransitionEnd',funEnd);
+            }
+            function oDivClick(){//给每个div绑定一个点击事件
+
+                if(bFlag){
+                    iNow = this.divIndex;//取出点击图片的索引
+
+                    for(var i=0;i<24;i++){//给div换位置
+                        aDiv[i].addEventListener('webkitTransitionEnd',funEnd,false);//添加webkitTransitionEnd函数结束之前动画
+                        aDiv[i].style.left = aDiv[i].rowCol.col*125 + width + "px";
+                        aDiv[i].style.top = aDiv[i].rowCol.row*125 + height + "px";
+                        aDiv[i].style.border = '1px solid #fff';
+                        aDiv[i].style.webkitTransform = 'rotate(0deg)';
+                        var aSpan = aDiv[i].getElementsByTagName('span')[0];
+                        var spanLeft = -aDiv[i].rowCol.col * 125;
+                        var spanTop = -aDiv[i].rowCol.row * 125;
+                        aSpan.style.opacity = '1';
+                        aSpan.style.background = 'url("img/'+(this.divIndex+1)+'.jpg") '+spanLeft+'px '+spanTop+'px no-repeat';
+                    }
+                    oNext.style.display = 'block';
+                    oPrev.style.display = 'block';
+                }else{
+                    for(var i=0;i<24;i++){
+                        aDiv[i].style.left = aDiv[i].pos.left + 'px';
+                        aDiv[i].style.top = aDiv[i].pos.top + 'px';
+                        aDiv[i].style.border = '5px solid #fff';
+                        aDiv[i].style.webkitTransform = 'rotate('+(Math.random()*40-20)+'deg)';
+                        var aSpan = aDiv[i].getElementsByTagName('span')[0];
+                        aSpan.style.opacity = '0';
+                    }
+                    oNext.style.display = 'none';
+                    oPrev.style.display = 'none';
+                }
+                bFlag = !bFlag;
+            }
+            //点击切换大图
+            oNext.onclick = oPrev.onclick =function(){
+                if(this==oNext){
+                    iNow++;
+                    if(iNow == aDiv.length){
+                        iNow = 0;
+                    }
+                }else{
+                    if(iNow==0){
+                        iNow = aDiv.length;
+                    }
+                    iNow--;
+                }
+                var arr = [];
+                for(var i=0;i<24;i++){
+                    arr.push(i);
+                }
+                arr.sort(function(a,b){
+                    return Math.random()-0.5;
+                });
+                var timer2 = setInterval(function(){
+                    var random = arr.pop();
+                    var aSpan = aDiv[random].getElementsByTagName('span')[0];
+                    var spanLeft = -aDiv[random].rowCol.col * 125;
+                    var spanTop = -aDiv[random].rowCol.row * 125;
+                    aSpan.style.background = 'url("img/'+(iNow+1)+'.jpg") '+spanLeft+'px '+spanTop+'px no-repeat';
+                    if(arr.length == 0){
+                        clearInterval(timer2);
+                    }
+                },30);
+            };
+
+
         }
+
+
+
+
+
 </script>
 </body>
 </html>
