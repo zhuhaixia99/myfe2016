@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" id="btn" value="button"/>
+<div id="div1"></div>
+<script>
+    var oBtn = document.getElementById('btn');
+    var oDiv = document.getElementById('div1');
+    var obj={};
+    oBtn.onclick = function(){
+        var arr=[];
+        for(var i=0;i<7;i++){
+            arr.push(Math.floor(Math.random()*35)+1);
+        }
+        oDiv.innerHTML = arr;
+        var hashValue = Math.random();
+        location.hash = hashValue;//设置hash值
+        obj[hashValue] = arr;//创建对象把hash值和数组值一一对应
+    };
+    window.onhashchange = function(){
+        var hash =location.hash;//现在取出来的hash带‘ # ’号
+        var hash = hash.substr(1);//字符串截取掉‘#’
+        if(obj[hash]){//如果存在hash属性
+            oDiv.innerHTML = obj[hash];
+        }else{
+            oDiv.innerHTML ="";
+        }
+        console.log(hash);
+    };
+</script>
+</body>
+</html>
