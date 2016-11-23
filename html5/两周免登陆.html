@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form id="form1" action="index.php">
+    用户名：<input id="userName" type="text"/><br/>
+    密  码：<input id="passWord" type="password"/><br/>
+    两周免登陆 <input id="check" type="checkbox"/>
+    <input  id="submit" type="submit" value="submit"/>
+</form>
+<script>
+    var oCheck = document.getElementById('check');
+    var oSubmit = document.getElementById('submit');
+    var oUser = document.getElementById('userName');
+    var oPwd = document.getElementById('passWord');
+    var oForm = document.getElementById('form1');
+    oForm.onsubmit = function(){
+        if(oCheck.checked){
+            setCookie('name',oUser.value,14);
+            setCookie('password',oPwd.value,14)
+        }
+    };
+    var name = getCookie('name');
+    var pwd = getCookie('password');
+    if(name && pwd){
+        oUser.value = name;
+        oPwd.value = pwd;
+        oForm.submit();
+    }
+    function getCookie(key){
+        var str = document.cookie;
+        var arr = str.split('; ');
+        for(var i=0;i<arr.length;i++){
+            var arr2 = arr[i].split('=');
+            if(arr2[0] == key){
+                return arr2[1];
+            }
+        }
+    }
+    function setCookie(key,value,day){
+        var str = key+"="+value+";";
+        if(day){
+            var date = new Date();
+            date.setDate(date.getDate()+day);
+            str += 'expires='+date;
+        }
+        document.cookie=str;
+    }
+</script>
+</body>
+</html>
