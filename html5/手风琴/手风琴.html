@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            border: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 750px;
+            height: 500px;
+            margin: 50px auto;overflow: hidden;
+        }
+        #container li{
+            float: left;
+            width: 150px;
+            height: 500px;
+            position: relative;
+            -webkit-transition: all 1s ease;
+        }
+        /*#container li:last-child{
+            float: right;
+        }*/
+        #container:hover li{
+            width: 50px;
+        }
+        #container li:hover{
+            width: 550px;
+        }
+        /*#container li img{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }*/
+    </style>
+</head>
+<body>
+
+<ul id="container">
+    <li><img src="img/1.jpg" alt=""/></li>
+    <li><img src="img/2.jpg" alt=""/></li>
+    <li><img src="img/3.jpg" alt=""/></li>
+    <li><img src="img/4.jpg" alt=""/></li>
+    <li><img src="img/5.jpg" alt=""/></li>
+</ul>
+</body>
+</html>
