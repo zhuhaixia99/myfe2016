@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #header,#nav,#footer{
+            width: 960px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            background: #ccc;
+            margin: 50px auto;
+        }
+        #img{
+            background: url("01.jpg") no-repeat center;
+            background-size: cover;
+            width: 960px;
+            height: 500px;
+            margin: 0 auto;
+        }
+        #content{
+            width: 960px;
+            margin: 0 auto;
+
+        }
+        #left,#right{
+            display: table;
+            height: 350px;
+        }
+        #content p{
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        #left{
+            width: 600px;
+            float: left;
+            background: #0f0;
+        }
+
+        #right{
+            width: 300px;
+            float: right;
+            background: #ff0;
+        }
+        #footer{
+            clear: both;
+        }
+
+        @media (max-width: 959px) {
+            #header,#nav,#footer{
+                width: 100%;
+            }
+            #content{
+                width: 100%;
+            }
+            #left{
+                width: 63%;
+            }
+            #right{
+                width: 32%;
+            }
+            #img{
+                background-image: url("01_s_2x.jpg");
+                width: 100%;
+                padding-top: 56%;
+                height: 0;
+
+            }
+        }
+        @media (max-width: 480px) {
+            #left,#right{
+                width: 100%;
+                float: none;
+            }
+            #img{
+                background-image: url("01_s.jpg");
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="header">页头</div>
+<div id="nav">导航</div>
+<div id="img"></div>
+<div id="content">
+    <div id="left">
+        <p>Amazon.com, Inc. is an American electronic commerce company with headquarters in Seattle, Washington. It is the largest Internet-based retailer in the United States.Amazon.com started as an online bookstore, but soon diversified, selling DVDs, Blu-rays, CDs, videodownloads/streaming, MP3 downloads/streaming, software, video games, electronics, apparel, furniture, food, toys and jewelry.</p>
+    </div>
+    <div id="right">
+        <p>The company also produces consumer electronics—notably, Amazon Kindle e-book readers, Fire tablets, Fire TV and Fire Phone — and is a major provider of cloud computing services. Amazon also sells certain low-end products like USB cables under its inhouse brand AmazonBasics.</p>
+    </div>
+</div>
+<div id="footer">页脚</div>
+</body>
+</html>
