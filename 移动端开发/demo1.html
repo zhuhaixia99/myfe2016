@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            border: none;
+        }
+        #header,#nav,#footer{
+            text-align: center;
+            font-size: 20px;
+            background: #ccc;
+            height: 100px;
+            line-height: 100px;
+            width: 960px;
+            margin: 50px auto;
+        }
+        #img{
+            width: 960px;
+            margin: 0 auto;
+        }
+        #img img{
+            width: 960px;
+        }
+        #content{
+            width: 960px;
+            margin: 0 auto;
+        }
+        #content div{
+            display: table;
+            height: 300px;
+            /*vertical-align: middle;*/
+        }
+        #content div span{
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        #content .left{
+            background: #0f0;
+            float: left;
+            width: 600px;
+        }
+        #footer{
+            clear: both;
+        }
+        #content .right{
+            background: #ff0;
+            float: right;
+            width: 300px;
+        }
+        @media (max-width: 959px) {
+            #header,#nav,#footer,#img,#content{
+                 width: 100%;
+             }
+            #img img{
+                width: 100%;
+                max-width: 100%;/*相对于自己*/
+            }
+            #content .left{
+                width: 67%;
+            }
+            #content .right{
+                width: 30%;
+            }
+        }
+        @media (max-width: 480px) {
+            #content .left,#content .right{
+                width: 100%;
+                float: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="header">头部</div>
+<div id="nav">导航</div>
+<div id="img"><img src="timg.jpg" alt=""/></div>
+<div id="content">
+    <div class="left"><span>Amazon.com, Inc. is an American electronic commerce company with headquarters in Seattle, Washington. It is the largest Internet-based retailer in the United States.Amazon.com started as an online bookstore, but soon diversified, selling DVDs, Blu-rays, CDs, videodownloads/streaming, MP3 downloads/streaming, software, video games, electronics, apparel, furniture, food, toys and jewelry. </span></div>
+    <div class="right"><span>The company also produces consumer electronics—notably, Amazon Kindle e-book readers, Fire tablets, Fire TV and Fire Phone — and is a major provider of cloud computing services. Amazon also sells certain low-end products like USB cables under its inhouse brand AmazonBasics.</span></div>
+</div>
+<div id="footer">页脚</div>
+</body>
+</html>
