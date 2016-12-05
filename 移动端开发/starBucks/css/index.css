@@ -1,0 +1,430 @@
+/*css样式重置 start*/
+*{
+    padding: 0;
+    margin: 0;
+}
+
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+span{
+    display: inline;
+}
+img{
+    border: none;
+    display: block;
+}
+body{
+
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #707070;
+    font-weight: 400;
+}
+.clearfix::after{
+    content:"";
+    display:block;
+    clear:both
+}
+/*css样式重置 end*/
+/*header start*/
+#header{
+    height: 100px;
+    padding: 0 36px;
+}
+#header .menu{
+    width: 40%;
+    float: left;
+    margin-top: 34px;
+}
+#header .menu span{
+    /*display: inline-block;*/
+    font-size: 12px;
+    cursor: pointer;
+    color: #000;
+    padding-left: 3px;
+}
+#header .logo{
+    width: 20%;
+    float: left;
+    position: relative;
+    height: 100%;
+}
+#header .logo img{
+    height: 72px;
+    width: 72px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -36px;
+    margin-top: -36px;
+}
+#header .login{
+    width: 40%;
+    float: right;
+    margin-top: 34px;
+    text-align: right;
+    line-height: 20px;
+    font-size: 16px;
+}
+#header .login span{
+    color: #4e4e4e;
+    line-height: 20px;
+    font-family: AvenirRoman, HelveticaNeue-Light, Helvetica Neue, arial, Hiragino Sans GB, 冬青黑体, Microsoft YaHei New, Microsoft Yahei, 微软雅黑, 宋体, SimSun, STXihei, 华文细黑, sans-serif;
+    font-weight: 400;
+}
+#header .login span.or{
+    padding: 0 4px;
+}
+#header .login a{
+    white-space: nowrap;
+    color: #b89f7a;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: AvenirRoman, HelveticaNeue-Light, Helvetica Neue, arial, Hiragino Sans GB, 冬青黑体, Microsoft YaHei New, Microsoft Yahei, 微软雅黑, 宋体, SimSun, STXihei, 华文细黑, sans-serif;
+}
+#header .login a:hover{
+    color: #967a50
+}
+/*header end*/
+/*banner start*/
+#banner{
+    width: 100%;
+}
+#banner img{
+    width: 100%;
+}
+#banner img:nth-child(2){
+    display: none;
+}
+/*banner end*/
+/*vipCard start*/
+#vipCard{
+    overflow: hidden;
+}
+#vipCard img{
+    width: 100%;
+}
+/*vipCard end*/
+/*starBucks start*/
+#starBucks{
+    padding: 100px 35px;
+    text-align: center;
+    background: #202020;
+}
+#starBucks h2{
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 38px;
+    color: #fffffe;
+    margin:0 0 8px;
+}
+#starBucks p{
+    font-size: 18px;
+    line-height: 32px;
+    color: #999;
+}
+#starBucks .btn{
+    margin-top: 50px;
+}
+.btn a{
+    padding: 14px 40px;
+    border: 2px solid #a98e67 ;
+    color:#a98e67;
+    display: inline-block;
+    margin:0 14px;
+    font-weight: 700;
+    font-size: 14px;
+}
+.btn a:hover{
+    color: #ffffff;
+    background-color: #a98e67;
+    border-color: #a98e67;
+}
+/*starBucks end*/
+/*app start*/
+#app{
+    background: #e0e0e0;
+    position: relative;
+}
+#app .wrap{
+    width: 1170px;
+    margin: 0 auto;
+}
+#app .textContent{
+    width: 55%;
+    padding: 210px 0;
+}
+#app h3{
+    line-height: 22px;
+    font-weight: 900;
+    font-size: 13px;
+    color: #a98e67;
+    margin-bottom: 22px;
+}
+#app p{
+    margin-bottom: 140px;
+    font-size: 26px;
+    line-height: 40px;
+    color: #3d3d3d;
+    font-family: AvenirLight, 'HelveticaNeue-Light', 'Helvetica Neue', arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
+}
+#app  .btn a{
+    margin: 0 30px 0 0;
+}
+#app img.bgImg{
+    width: 50%;
+    position: absolute;
+    right: 0;
+    bottom: 80px;
+}
+#app .btn2{
+    display: none;
+}
+/*app end*/
+/*activities start*/
+#activities{
+
+}
+#activities a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+#activities .img{
+    width: 50%;
+    padding-top: 50%;
+    height: 0;
+    background-size: cover;
+    position: relative;
+
+ }
+#activities .imgLeft{
+    background-image: url("../img/20e42950-aa53-11e6-9345-bca7c77dab11.jpeg");
+    float: left;
+}
+#activities .imgRight{
+    float: right;
+    background-image: url("../img/homepage-grid.jpg");
+}
+#activities .textContent{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: table;
+}
+#activities .textBox{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+#activities h3 {
+    font-weight: 900;
+    font-size: 13px;
+    line-height: 22px;
+    color: #a98e67;
+    letter-spacing: 3px;
+    font-family: AvenirBlack, 'HelveticaNeue-Light', 'Helvetica Neue', arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
+}
+#activities h2{
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 38px;
+    color: #fffffe;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: AvenirLight, 'HelveticaNeue-Light', 'Helvetica Neue', arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
+}
+/*activities end*/
+
+
+
+/*introduce start*/
+#introduce {
+    padding: 40px 100px;
+    background-color: #060608;
+}
+#introduce .cell{
+    width: 50%;
+    text-align: center;
+}
+#introduce .cellLeft{
+    float: left;
+}
+
+#introduce .cellRight{
+    float: right;
+}
+#introduce .table{
+    width: 100%;
+}
+#introduce h3{
+    margin: 136px 0 14px 0;
+    font-weight: 900;
+    font-size: 13px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: #a98e67;
+    letter-spacing: 3px;
+    font-family: AvenirBlack, 'HelveticaNeue-Light', 'Helvetica Neue', arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
+}
+#introduce p{
+    font-size: 26px;
+    line-height: 40px;
+    color: #707070
+font-family: AvenirLight, 'HelveticaNeue-Light', 'Helvetica Neue', arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
+}
+#introduce .btn a{
+    border: 2px solid #a98e67;
+    padding: 14px 40px;
+    color: #a98e67;
+    display: inline-block;
+    font-weight: 700;
+    font-size: 14px;
+    margin: 44px 15px 0 0;
+}
+/*introduce end*/
+/*footer start*/
+#footer{
+    background: #292929;
+    color: #A3A3A3;
+    padding: 39px 0;
+}
+/*footer end*/
+/*媒体查询 start*/
+@media (max-width: 1200px) {
+    #app .wrap{
+        width: 940px;
+    }
+}
+@media (max-width: 991px) {
+    #banner img:nth-child(2){
+        display: block;
+    }
+    #banner img:nth-child(1){
+        display: none;
+    }
+    #app .wrap{
+        width: 720px;
+    }
+    /*introduce start*/
+    #introduce{
+        padding: 40px 50px;
+    }
+    #introduce .cellRight{
+        float: right;
+        width: 38%;
+    }
+    #introduce h3{
+        margin: 36px 0 14px 0;
+    }
+    #introduce .btn a:nth-child(2){
+        margin: 14px 15px 0 0;
+    }
+    /*introduce end*/
+}
+@media (max-width: 767px) {
+    /*header start*/
+    #header{
+        padding: 0 14px;
+    }
+    #header .login span,#header .login a{
+        font-size: 12px;
+        line-height: 15px;
+    }
+    /*header end*/
+    #vipCard img{
+        height: 135px;
+        width: auto;
+    }
+    #starBucks{
+        padding: 50px 35px;
+    }
+    #starBucks .btn a{
+        width: 100%;
+        margin: 0;
+        padding: 14px 0;
+    }
+    #starBucks .btn a:nth-child(2){
+        margin-top: 24px;
+    }
+    /*app start*/
+    #app{
+        padding: 0 35px;
+    }
+    #app .wrap{
+        width: 100%;
+    }
+    #app .textContent{
+        padding: 90px 0 0 0;
+        width: 100%;
+    }
+    #app img.bgImg{
+        position: static;
+        width: 90%;
+        float: right;
+    }
+    #app .textContent .btn{
+        display: none;
+    }
+    #app .btn2{
+        display: block;
+        padding-bottom: 60px;
+    }
+    #app .btn2 a{
+        padding: 14px 10%;
+    }
+    #app p{
+        margin-bottom: 14px;
+    }/*app end*/
+    /*activities start*/
+    #activities .img{
+        width: 100%;
+        padding-top: 100%;
+        height: 0;
+
+    }
+    /*activities end*/
+    /*introduce start*/
+    #introduce{
+        padding: 40px 35px;
+    }
+    #introduce .cellLeft img{
+        width: 100%;
+        max-width: 500px;
+    }
+    #introduce .cell{
+        width: 100%;
+    }
+    #introduce h3{
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 48px;
+        letter-spacing: 4px;
+        margin: 30px 0 20px;
+    }
+    #introduce .btn a{
+        width: 100%;
+        padding: 12px 0;
+        margin: 0;
+    }
+    #introduce .btn a:nth-child(2){
+        margin: 0;
+    }
+    #introduce .btn a:nth-child(1){
+        margin: 60px 0 30px 0;
+    }
+    /*introduce end*/
+}
+@media (max-width: 400px){
+    #header .logo img {
+        width:100%;
+        min-width: 40px;
+
+    }
+}
