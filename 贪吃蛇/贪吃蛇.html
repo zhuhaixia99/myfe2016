@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 1000px;
+            height: 550px;
+            border: 1px solid #1f1f1f;
+            margin: 0 auto;
+        }
+        #ground{
+            width: 1000px;
+            height: 500px;
+            position: relative;
+        }
+        #control{
+            width: 1000px;
+            height: 50px;
+            line-height: 50px;
+        }
+        #control .text{
+            float: left;
+        }
+        #control .btn{
+            float: right;
+        }
+        .block{
+            width: 20px;
+            height: 20px;
+            background: #FFCF78;
+            float: left;
+        }
+        .snake-block{
+            background: #f00;
+            position: absolute;
+        }
+        .food-block{
+            background: #00f;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="ground">
+
+        </div>
+        <div id="control">
+            <div class="text">&nbsp;&nbsp;贪吃蛇 by .......</div>
+            <div class="btn">
+                <button class="start">开始</button>
+                <button class="pause">暂停</button>
+                &nbsp;&nbsp;
+            </div>
+        </div>
+    </div>
+    <script>
+        var oGround = document.getElementById('ground');
+        var oStart = document.querySelector('.start');
+        var oPause = document.querySelector('.pause');
+        var direction = 'right';
+        var bPause = false;
+        var bDie = false;
+        oStart.onclick = function(){
+            if(bPause){
+                bPause=false;
+                timer = setInterval(move,200);
+            }
+            if(bDie){
+                oGround.removeChild(oFood);
+                for(var i=0;i<snakeBody.length;i++){
+                    oGround.removeChild(snakeBody[i]);
+                }
+                snakeBody = [];
+                direction = 'right';
+                createSnake();
+                createFood();
+                timer = setInterval(move,200);
+                bDie = false;
+            }
+        };
+        oPause.onclick = function(){
+            clearInterval(timer);
+            bPause = true;
+        };
+        //创建草场
+        for(var i=0;i<50*25;i++){
+            var oDiv = document.createElement('div');
+            oDiv.className = 'block';
+            oGround.appendChild(oDiv);
+        }
+        //创建蛇
+        var snakeBody =[];
+        function createSnake(){
+            for(var i=0;i<3;i++){
+                var oSnake = document.createElement('div');
+                oSnake.className = 'block snake-block';
+                oSnake.style.top = '60px';
+                oSnake.style.left = 60 - i*20 + 'px';
+                oGround.appendChild(oSnake);
+                snakeBody.push(oSnake);
+            }
+        }
+        createSnake();
+        //随机创建食物
+        var oFood = null ;
+        function createFood(){
+            var oFoodLeft;
+            var oFoodTop;
+            var bFlag;
+            do{
+                bFlag = false;
+                oFoodLeft = parseInt(Math.random()*50)*20;
+                oFoodTop = parseInt(Math.random()*25)*20;
+                for(var i = 0;i<snakeBody.length;i++){
+                    if(snakeBody[i].offsetLeft == oFoodLeft && snakeBody[i].offsetTop == oFoodTop){
+                        bFlag = true;
+                    }
+                }
+            }while(bFlag);
+            oFood = document.createElement('div');
+            oFood.className = 'block food-block';
+            oFood.style.left = oFoodLeft + "px";
+            oFood.style.top = oFoodTop + "px";
+            oGround.appendChild(oFood);
+        }
+        createFood();
+        //蛇的移动move
+        var next = null;
+        function move (){
+            var snakeHead = snakeBody[0];
+            if(direction == 'right'){
+                next = {
+                    left:snakeHead.offsetLeft + 20,
+                    top:snakeHead.offsetTop
+                }
+            }else if(direction == 'left'){
+                next = {
+                    left:snakeHead.offsetLeft - 20,
+                    top:snakeHead.offsetTop
+                }
+            }else if(direction == 'up'){
+                next = {
+                    left:snakeHead.offsetLeft,
+                    top:snakeHead.offsetTop - 20
+                }
+            }else if(direction == 'down'){
+                next = {
+                    left:snakeHead.offsetLeft,
+                    top:snakeHead.offsetTop +20
+                }
+            }
+            //蛇吃食物
+            if(oFood.offsetLeft == next.left && oFood.offsetTop == next.top){
+                oFood.className = 'block snake-block';
+                snakeBody.unshift(oFood);
+                createFood();
+            }else{// 吃到食物的时候暂停一次移动
+                var snakeTail = snakeBody.pop();
+                snakeTail.style.left = next.left + 'px';
+                snakeTail.style.top = next.top + 'px';
+                snakeBody.unshift(snakeTail);
+            }
+            //判断蛇是否吃到自己，是否撞墙
+            for(var i=3;i<snakeBody.length;i++){
+                snakeHead = snakeBody[0];
+                if(snakeHead.offsetLeft == snakeBody[i].offsetLeft && snakeHead.offsetTop == snakeBody[i].offsetTop){
+                    clearInterval(timer);
+                    alert("GAME OVER");
+                    bDie = true;
+                }
+            }
+            snakeHead = snakeBody[0];
+            if(snakeHead.offsetTop<0 || snakeHead.offsetLeft<0 || snakeHead.offsetTop>480 || snakeHead.offsetLeft>980){
+                clearInterval(timer);
+                alert("GAME OVER");
+                bDie = true;
+            }
+        }
+        var timer = setInterval(move,200);
+        //控制蛇的移动
+        document.onkeydown = function(e){
+            e = e || window.event;
+            var kc = e.which|| e.keyCode;
+            if(kc == 37 && direction != 'right'){
+                direction = 'left';
+            }else if(kc == 38 && direction != 'down'){
+                direction = 'up';
+            }
+            else if(kc == 39 && direction != 'left'){
+                direction = 'right';
+            }else if(kc == 40 && direction != 'up'){
+                direction = 'down';
+            }
+        };
+        //
+    </script>
+</body>
+</html>
