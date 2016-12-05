@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<div id="header">
+    <div class="menu">
+        <img src="img/menu_icon.svg" alt=""/>
+        <span>菜单</span>
+    </div>
+    <div class="logo">
+        <img src="img/logo.svg" alt=""/>
+    </div>
+    <div class="login">
+        <span>星享俱乐部</span>
+        <div>
+            <a href="#">登录</a><span class="or">或</span><a href="#">注册</a>
+        </div>
+    </div>
+</div>
+<div id="banner">
+    <img src="img/kv-desktop-cn-20161027171806.jpg" alt=""/>
+    <img src="img/kv-mobile-cn-20161027171809.jpg" alt=""/>
+</div>
+<div id="vipCard">
+    <img src="img/rewards.jpg" alt=""/>
+</div>
+<div id="starBucks">
+    <h2>星享俱乐部</h2>
+    <p>开启您的星享之旅，星星越多、会员等级越高、好礼越丰富</p>
+    <div class="btn">
+        <a href="#">注册</a><a href="#">登录</a>
+    </div>
+</div>
+<div id="app">
+    <div class="wrap">
+        <div class="textContent">
+            <h3>星巴克中国官方应用</h3>
+            <p>更新或下载全新星巴克中国官方APP，开启更便捷的星巴克体验。将新购买的星礼卡轻松关联至您的账户，即时通过手机进行移动支付，查看消费记录，管理卡片。</p>
+            <div class="btn">
+                <a href="#">iOS下载</a><a href="#">ANDROID下载</a>
+            </div>
+        </div>
+    </div>
+    <img class="bgImg" src="img/mobile-app-20160705111504.png" alt=""/>
+    <div class=" btn btn2">
+        <a href="#">下载应用</a>
+    </div>
+</div>
+<div id="activities">
+    <div class="imgLeft img">
+        <div class="textContent">
+            <a class="textBox" href="#">
+                <h3>星巴克天猫旗舰店限量供应中</h3>
+                <h2>随时随地来一杯手冲心意 </h2>
+            </a>
+        </div>
+    </div>
+    <div class="imgRight img">
+        <div class="textContent">
+            <a class="textBox" href="#">
+                <h3>圣诞季 送出你的心意</h3>
+                <h2>点击了解更多</h2>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div id="introduce">
+    <div class="wrap">
+        <div class="cell cellLeft">
+            <img src="img/homepage-reserve.png" alt=""/>
+        </div>
+        <div class="table">
+            <div class="cell cellRight">
+                <h3>我们优质的咖啡产品</h3>
+                <p>我们持续在全世界各地寻找优质而稀少的咖啡豆，我们喜爱与您分享我们的新发现。我们在星巴克位于总部西雅图的星巴克臻选™咖啡烘焙工坊及品鉴馆为您精心烘焙星巴克臻选™咖啡。</p>
+                <div class="btn">
+                    <a href="#">了解更多</a>
+                    <a href="#">在这里购买</a>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div><!--介绍-->
+<div id="footer"></div>
+<script>
+    function isMobile(){
+        if(/Mobile|Android/ig.test(navigator.userAgent)){
+            return true;
+        }
+        return false;
+    }
+    var script = document.createElement('script');
+    script.onload = function(){
+        var myJs = document.createElement('script');
+        myJs.src = 'js/index.js';
+        document.body.appendChild(myJs);
+    };
+    /*if(isMobile){
+        script.src = 'js/zepto.min.js';
+    }
+    else{
+        script.src = 'js/jquery-1.12.4.js';
+    }*/
+    script.src = isMobile()?'js/zepto.min.js':'js/jquery-1.12.4.js';
+    document.body.appendChild(script);
+</script>
+</body>
+</html>
