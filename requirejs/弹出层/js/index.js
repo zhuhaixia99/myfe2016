@@ -8,6 +8,7 @@ require(["jquery","dialog"],function($,Dialog){
             height:400,
             title:"我的弹出层",
             content:"login.html"
+
         };
         var dialog = new Dialog(settings);
         dialog.open();
