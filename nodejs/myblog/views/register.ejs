@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form action="/users/checkUser" method="post">
+    <p>用户名：<input type="text" name="uName" id="uName"></p>
+    <p>密码：<input type="password" name="pwd" id="passWord"></p>
+    <p>确认密码：<input type="password" name="confirmPwd"></p>
+    <p><input type="submit" value="注册"></p>
+</form>
+<script src="/javascripts/jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        $('#uName').on('blur',function () {
+            var _this = this;
+            //url, data, callback, dataType
+            $.get('/users/checkUser',{userName: this.value},
+                function (data) {
+                    if (data == 'fail'){
+                        $('<span>错</span>').insertAfter(_this);
+                    }else if(data == 'success'){
+                        $('<span>对</span>').insertAfter(_this);
+                    }
+            },'text');
+        });
+    });
+</script>
+</body>
+</html>
