@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>按钮式下拉菜单</title>
+    <!--1.加载bootsrap层叠样式表-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+</head>
+<body>
+<!--能改动的只有  链接地址 和文字-->
+<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+        Dropdown
+        <span class="caret"></span><!--向下三角号-->
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"><!--和上面id关联-->
+        <!--下拉选项标题-->
+        <li role="presentation" class="dropdown-header">Dropdown header</li>
+        <!--下拉选项-->
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+        <!--分割线-->
+        <li role="presentation" class="divider"></li>
+        <!-- class="disabled" 禁用-->
+        <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+    </ul>
+</div>
+
+<!--2.加载jquery库-->
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<!--3.加载bootstrap的核心-->
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
