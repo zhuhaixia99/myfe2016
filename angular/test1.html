@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+</head>
+<body ng-app="">
+    <div class="container" ng-controller="cartController">
+        <table class="table" ng-show="cart.length">
+            <thead>
+                <tr>
+                    <th>产品编号</th>
+                    <th>产品商品</th>
+                    <th>购买数量</th>
+                    <th>产品单价</th>
+                    <th>产品总价</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in cart">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>
+                        <button type="button" ng-click="reduce(item.id)" class="btn btn-primary">-</button>
+                        <input type="text" value="{{item.quantity}}" ng-model="item.quantity">
+                        <button type="button" ng-click="add(item.id)" class="btn btn-primary">+</button>
+                    </td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.price * item.quantity}}</td>
+                    <td><button class="btn btn-danger" ng-click="del(item.id)" type="button">删除</button></td>
+                </tr>
+                <tr>
+                    <td>总购买价：</td>
+                    <td>{{total()}}</td>
+                    <td>总购数量</td>
+                    <td>{{sum()}}</td>
+                    <td colspan="2"><button type="button" ng-click="cart = {}" class="btn btn-danger">清空购物车</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <p ng-show="!cart.length">您的购物车为空</p>
+    </div>
+
+<script src="angular-1.2.18/angular.js"></script>
+<script src="test1.js"></script>
+
+</body>
+</html>
